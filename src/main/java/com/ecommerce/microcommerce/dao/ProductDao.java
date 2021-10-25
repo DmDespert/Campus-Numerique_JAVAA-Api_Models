@@ -4,6 +4,11 @@ import com.ecommerce.microcommerce.model.Product;
 
 import java.util.List;
 
+/*
+ ** ProductDao rassemble les methodes de Product, le controller interrogera Dao,
+ *  Dao interrogera le Model.
+ */
+
 public interface ProductDao {
     public List<Product> findAll();
 
