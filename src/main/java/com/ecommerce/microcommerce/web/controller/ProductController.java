@@ -18,31 +18,31 @@ public class ProductController {
     private ProductDao productDao;
 
     //Request avec méthode spécifiée
-    @RequestMapping(value = "/Produits", method = RequestMethod.GET)
+    @RequestMapping(value = "/Products", method = RequestMethod.GET)
     public List<Product> listeProduits() {
         return productDao.findAll();
     }
 
     //Request raccourcie
-    @GetMapping(value = "/Produits/{id}")
+    @GetMapping(value = "/Products/{id}")
     public Product afficherUnProduit(@PathVariable int id) {
         return productDao.findById(id);
     }
 
     //Request Post raccourcie
-    @PostMapping(value = "/Produits/{id}")
+    @PostMapping(value = "/Products/{id}")
     public String ajouteUnProduit(@PathVariable int id) {
         return "Ajout du produit numéro " + id;
     }
 
     //Request Put raccourcie
-    @PutMapping(value = "/Produits/{id}")
+    @PutMapping(value = "/Products/{id}")
     public String modifieUnProduit(@PathVariable int id) {
         return "Modification du produit numéro " + id;
     }
 
     //Request delete raccourcie
-    @DeleteMapping(value = "/Produits/{id}")
+    @DeleteMapping(value = "/Products/{id}")
     public String deleteUnProduit(@PathVariable int id) {
         return "Suppression du produit numéro " + id;
     }
