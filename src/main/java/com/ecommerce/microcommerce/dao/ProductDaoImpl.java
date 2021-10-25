@@ -11,9 +11,9 @@ public class ProductDaoImpl implements ProductDao {
     public static List<Product> products = new ArrayList<>();
 
     static {
-        products.add(new Product(1, new String("Aspirateur"), 350));
-        products.add(new Product(2, new String("Ordinateur"), 1050));
-        products.add(new Product(3, new String("Téléphone"), 250));
+        products.add(new Product(1, new String("Renaud"), new String ("Scenic MPV"), new String("Rouge")));
+        products.add(new Product(2, new String("Volkswagen"), new String ("Polo 6"), new String("Bleu")));
+        products.add(new Product(3, new String("Mercedes"), new String ("AMG C 63 S"), new String("Vert")));
     }
 
     @Override

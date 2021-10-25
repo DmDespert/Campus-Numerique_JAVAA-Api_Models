@@ -2,13 +2,15 @@ package com.ecommerce.microcommerce.model;
 
 public class Product {
     private int id;
-    private String name;
-    private int price;
+    private String model;
+    private String marque;
+    private String color;
 
-    public Product(int id, String name, int price) {
+    public Product(int id, String model, String marque, String color) {
         this.id = id;
-        this.name = name;
-        this.price = price;
+        this.model = model;
+        this.marque = marque;
+        this.color = color;
     }
 
     public int getId() {
@@ -19,27 +21,36 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public int getPrice() {
-        return price;
+    public String getMarque() {
+        return marque;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
     public String toString() {
         return "Product{"+
                 "id=" + id +
-                ", name=" + name +
-                ", price=" + price + "}";
+                ", model=" + model +
+                ", marque=" + marque +
+                ", couleur=" + color + "}";
     }
 }
