@@ -15,4 +15,8 @@ public interface ProductDao {
     public Product findById(int id);
 
     public Product save(Product product);
+
+    public Product update(Product product, int id);
+
+    public Boolean delete(int id);
 }

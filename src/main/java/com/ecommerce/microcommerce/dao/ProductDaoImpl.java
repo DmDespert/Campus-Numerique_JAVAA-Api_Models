@@ -13,7 +13,6 @@ import java.util.List;
 @Repository
 public class ProductDaoImpl implements ProductDao {
     public static List<Product> products = new ArrayList<>();
-
     static {
         products.add(new Product(1, new String("Renaud"), new String("Scenic MPV"), new String("Rouge")));
         products.add(new Product(2, new String("Volkswagen"), new String("Polo 6"), new String("Bleu")));
@@ -40,4 +39,29 @@ public class ProductDaoImpl implements ProductDao {
         products.add(product);
         return product;
     }
+
+    @Override
+    public Product update(Product product, int id) {
+        for (Product isProduct : products) {
+            if (isProduct.getId() == id) {
+                isProduct.setMarque(product.getMarque());
+                isProduct.setModel(product.getModel());
+                isProduct.setColor(product.getColor());
+                return isProduct;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Boolean delete(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                products.remove(product);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
