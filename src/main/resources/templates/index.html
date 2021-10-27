@@ -1,26 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Voitures en location</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-    <h1>Main title</h1>
-    <h2 th:utext="${message}">..!..</h2>
-    <table border="1">
-        <tr>
-            <th>Modèle</th>
-            <th>Marque</th>
-            <th>Couleur</th>
-        </tr>
-        <tr th:each="product : ${products}">
-            <td th:utext="${product.marque}">...</td>
-            <td th:utext="${product.model}">...</td>
-            <td th:utext="${product.color}">...</td>
-        </tr>
-    </table>
-
-    <a href="addProduct">Add Car</a>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Microservice - Models</title>
+    </head>
+    <body>
+        <h1>Models API</h1>
+    </body>
 </html>
