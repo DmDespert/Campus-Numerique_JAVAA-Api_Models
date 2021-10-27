@@ -17,6 +17,7 @@ public class ModelController {
 
     /**
      * Get all Models
+     * GET METHOD
      * @return
      */
     @RequestMapping(value = "/Models", method = RequestMethod.GET)
@@ -26,6 +27,7 @@ public class ModelController {
 
     /**
      * Get Model by Id
+     * GET METHOD
      * @param id
      * @return
      */
@@ -36,6 +38,7 @@ public class ModelController {
 
     /**
      * Add Model
+     * POST METHOD
      * @param model
      * @return
      */
@@ -46,6 +49,7 @@ public class ModelController {
 
     /**
      * Edit Model
+     * PUT METHOD
      * @param model
      * @param id
      * @return
@@ -57,6 +61,7 @@ public class ModelController {
 
     /**
      * Delete Model
+     * DELETE METHOD
      * @param id
      * @return
      */

@@ -31,7 +31,7 @@ public class Model {
 
     @Override
     public String toString() {
-        return "Product{"+
+        return "Model{"+
                 "id=" + id +
                 ", model=" + model + "}";
     }
