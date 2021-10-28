@@ -1,19 +1,19 @@
 package com.ecommerce.microcommerce.web.controller;
 
-import com.ecommerce.microcommerce.dao.ModelDao;
 import com.ecommerce.microcommerce.model.Model;
+import com.ecommerce.microcommerce.repository.ModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @EnableSwagger2
 public class ModelController {
 
     @Autowired
-    private ModelDao modelDao;
+    private ModelRepository modelRepository;
 
     /**
      * Get all Models
@@ -21,8 +21,8 @@ public class ModelController {
      * @return
      */
     @RequestMapping(value = "/Models", method = RequestMethod.GET)
-    public List<Model> listModels() {
-        return modelDao.findAll();
+    public Iterable<Model> listModels() {
+        return modelRepository.findAll();
     }
 
     /**
@@ -33,7 +33,7 @@ public class ModelController {
      */
     @GetMapping(value = "/Models/{id}")
     public Model showModel(@PathVariable int id) {
-        return modelDao.findById(id);
+        return modelRepository.findById(id).get();
     }
 
     /**
@@ -44,7 +44,7 @@ public class ModelController {
      */
     @PostMapping(value = "/Models")
     public Model addModel(@RequestBody Model model) {
-        return modelDao.save(model);
+        return modelRepository.save(model);
     }
 
     /**
@@ -56,7 +56,13 @@ public class ModelController {
      */
     @PutMapping(value = "/Models/{id}")
     public Model editModel(@RequestBody Model model, @PathVariable int id) {
-        return modelDao.update(model, id);
+        return modelRepository.findById(id).map(isModel-> {
+            isModel.setModel(model.getModel());
+            return modelRepository.save(isModel);
+        }).orElseGet(()-> {
+            model.setId(id);
+            return modelRepository.save(model);
+        });
     }
 
     /**
@@ -67,6 +73,10 @@ public class ModelController {
      */
     @DeleteMapping(value = "/Models/{id}")
     public Boolean deleteModel(@PathVariable int id) {
-        return modelDao.delete(id);
+        if(modelRepository.existsById(id)) {
+            modelRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
