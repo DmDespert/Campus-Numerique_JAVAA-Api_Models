@@ -1,5 +1,6 @@
-package com.ecommerce.microcommerce.dao;
+package com.ecommerce.microcommerce.repository;
 
+import com.ecommerce.microcommerce.dao.ModelDao;
 import com.ecommerce.microcommerce.model.Model;
 import org.springframework.stereotype.Repository;
 
@@ -7,9 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ModelDaoImpl implements ModelDao {
-    public static List<Model> models = new ArrayList<>();
-    static {
+public class ModelRepository implements ModelDao {
+    public List<Model> models = new ArrayList<>();
+
+    public ModelRepository() {
         models.add(new Model(1, new String("Scenic MPV")));
         models.add(new Model(2, new String("Polo 6")));
         models.add(new Model(3, new String("AMG C 63 S")));
@@ -26,6 +28,7 @@ public class ModelDaoImpl implements ModelDao {
 
     /**
      * Find one Model method, return Model by id
+     *
      * @param id
      * @return
      */
@@ -41,6 +44,7 @@ public class ModelDaoImpl implements ModelDao {
 
     /**
      * Save Model method, return Model to add
+     *
      * @param model
      * @return
      */
@@ -53,7 +57,7 @@ public class ModelDaoImpl implements ModelDao {
                 break;
             }
         }
-        if(!trueOrFalse) {
+        if (!trueOrFalse) {
             models.add(model);
             return model;
         }
@@ -62,6 +66,7 @@ public class ModelDaoImpl implements ModelDao {
 
     /**
      * Update Model method, return edited Model
+     *
      * @param model
      * @param id
      * @return
@@ -79,6 +84,7 @@ public class ModelDaoImpl implements ModelDao {
 
     /**
      * Delete Model method, return true or false success
+     *
      * @param id
      * @return
      */
@@ -92,5 +98,4 @@ public class ModelDaoImpl implements ModelDao {
         }
         return false;
     }
-
 }

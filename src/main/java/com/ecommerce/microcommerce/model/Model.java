@@ -1,9 +1,17 @@
 package com.ecommerce.microcommerce.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name="model")
 public class Model {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
+    @Column(name="model")
     private String model;
 
     public Model() {}

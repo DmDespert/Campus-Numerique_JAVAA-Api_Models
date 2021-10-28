@@ -12,7 +12,7 @@ import java.util.List;
 @EnableSwagger2
 public class ModelController {
 
-    @Autowired //Indique à Spring de fabriquer une Instance
+    @Autowired
     private ModelDao modelDao;
 
     /**
